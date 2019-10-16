@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Chapter1
@@ -7,6 +8,8 @@ namespace Chapter1
     {
         private string myString = "Welcome!";
         private Text textWelcome;
+        public GameObject canvasWelcome;
+        private float waitTime = 3.5f;
 
         private void Start()
         {
@@ -29,6 +32,14 @@ namespace Chapter1
             {
                 Debug.Log("welcomeText not assigned!");
             }
+            StartCoroutine(DisableCanvas(waitTime));
         }
+
+        IEnumerator DisableCanvas(float waitTime)
+        {
+            yield return new WaitForSeconds(waitTime);
+            canvasWelcome.SetActive(false);
+        }
+
     }
 }
