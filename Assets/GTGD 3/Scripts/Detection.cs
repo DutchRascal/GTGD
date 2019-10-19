@@ -7,7 +7,7 @@ namespace Chapter1
     public class Detection : MonoBehaviour
     {
         private RaycastHit hit;
-        public LayerMask detectionLayer;
+        private LayerMask detectionLayer;
         private float checkRate = 0.5f;
         private float range = 5f;
         private float nextCheck;
@@ -26,6 +26,7 @@ namespace Chapter1
         void SetInitialReferences()
         {
             myTransform = transform;
+            detectionLayer = 1 << 9;
         }
 
         void DetectItems()
