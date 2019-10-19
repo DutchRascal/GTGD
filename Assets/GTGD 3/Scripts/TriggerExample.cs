@@ -6,20 +6,33 @@ namespace Chapter1
 {
     public class TriggerExample : MonoBehaviour
     {
+        private WalkThroughWall walkThroughWallScript;
+
+        private void Start()
+        {
+            SetInitialReferences();
+        }
+
         private void OnTriggerEnter(Collider other)
         {
-            Debug.Log(other.name + " has entered");
+            walkThroughWallScript.SetLayerToNotSolid();
         }
 
         private void OnTriggerExit(Collider other)
         {
-            Debug.Log(other.name + " has exited");
-
+            walkThroughWallScript.SetLayerToDefault();
         }
 
         private void OnTriggerStay(Collider other)
         {
-            Debug.Log(other.name + " is in trigger");
+        }
+
+        private void SetInitialReferences()
+        {
+            if (GameObject.Find("Wall") != null)
+            {
+                walkThroughWallScript = GameObject.Find("Wall").GetComponent<WalkThroughWall>();
+            }
         }
     }
 }

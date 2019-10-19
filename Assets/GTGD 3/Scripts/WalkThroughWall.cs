@@ -6,14 +6,16 @@ namespace Chapter1
 {
     public class WalkThroughWall : MonoBehaviour
     {
-        private void OnEnable()
+        public void SetLayerToNotSolid()
         {
             gameObject.layer = LayerMask.NameToLayer("Not Solid");
+
         }
 
-        private void OnDisable()
+        public void SetLayerToDefault()
         {
             gameObject.layer = LayerMask.NameToLayer("Default");
+
         }
     }
 }
