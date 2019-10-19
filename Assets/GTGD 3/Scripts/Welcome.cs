@@ -9,7 +9,7 @@ namespace Chapter1
         private string myString = "Welcome!";
         private Text textWelcome;
         public GameObject canvasWelcome;
-        private float waitTime = 3.5f;
+        private float waitTime = 0.5f;
 
         private void Start()
         {
