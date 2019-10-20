@@ -1,21 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Chapter1
 {
     public class WalkThroughWall : MonoBehaviour
     {
+
+        private Color myColor = new Color(0.5f, 1f, 0.5f, 0.3f);
         public void SetLayerToNotSolid()
         {
             gameObject.layer = LayerMask.NameToLayer("Not Solid");
-
+            GetComponent<Renderer>().material.SetColor("_Color", myColor);
         }
 
         public void SetLayerToDefault()
         {
             gameObject.layer = LayerMask.NameToLayer("Default");
-
+            GetComponent<Renderer>().material.color = Color.white;
         }
     }
 }
