@@ -6,8 +6,9 @@ namespace Chapter1
 {
     public class ThrowGrenade : MonoBehaviour
     {
-        public GameObject grenade;
+        public GameObject grenadePrefab;
         private Transform myTransform;
+        public float propuisionForce;
 
         void Start()
         {
@@ -29,7 +30,8 @@ namespace Chapter1
 
         void SpawnGrenade()
         {
-            GameObject gameObject = Instantiate(grenade, myTransform.TransformPoint(0, 0, 0.5f), myTransform.rotation);
+            GameObject gameObject = Instantiate(grenadePrefab, myTransform.TransformPoint(0, 0, 0.5f), myTransform.rotation);
+            gameObject.GetComponent<Rigidbody>().AddForce(myTransform.forward * propuisionForce, ForceMode.Impulse);
             Destroy(gameObject, 10f);
         }
     }

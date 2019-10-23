@@ -778,7 +778,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 480edac026f0c4806852cd61efee6e9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grenade: {fileID: 1036876676431248241, guid: d06267fe6b97e4ec5b3552d400932c0c, type: 3}
+  grenadePrefab: {fileID: 1036876676431248241, guid: d06267fe6b97e4ec5b3552d400932c0c,
+    type: 3}
+  propuisionForce: 200
 --- !u!1 &831923038 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100002, guid: 5e9e851c0e142814dac026a256ba2ac0,
