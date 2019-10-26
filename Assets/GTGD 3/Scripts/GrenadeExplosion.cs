@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Chapter1
 {
@@ -23,6 +24,10 @@ namespace Chapter1
             hitColliders = Physics.OverlapSphere(explosionPoint, blastRadius, explosionLayers);
             foreach (Collider hitCollider in hitColliders)
             {
+                if (hitCollider.GetComponent<NavMeshAgent>() != null)
+                {
+                    hitCollider.GetComponent<NavMeshAgent>().enabled = false;
+                }
                 if (hitCollider.GetComponent<Rigidbody>() != null)
                 {
                     hitCollider.GetComponent<Rigidbody>().isKinematic = false;
