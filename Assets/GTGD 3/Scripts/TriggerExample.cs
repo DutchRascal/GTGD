@@ -7,6 +7,7 @@ namespace Chapter1
     public class TriggerExample : MonoBehaviour
     {
         private WalkThroughWall walkThroughWallScript;
+        private GameManagerEventMaster eventMasterScript;
 
         private void Start()
         {
@@ -16,6 +17,7 @@ namespace Chapter1
         private void OnTriggerEnter(Collider other)
         {
             walkThroughWallScript.SetLayerToNotSolid();
+            eventMasterScript.CallMyGeneralEvent();
         }
 
         private void OnTriggerExit(Collider other)
@@ -33,6 +35,7 @@ namespace Chapter1
             {
                 walkThroughWallScript = GameObject.Find("Wall").GetComponent<WalkThroughWall>();
             }
+            eventMasterScript = GameObject.Find("GameManager").GetComponent<GameManagerEventMaster>();
         }
     }
 }
